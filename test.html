@@ -1,0 +1,80 @@
+﻿/*
+ * @Author: Weiqi Si 
+ * @Date: 2018-09-27 15:19:11 
+ * @Last Modified by: Weiqi Si
+ * @Last Modified time: 2018-09-27 15:21:07
+ */
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CGI测试</title>
+    <link rel='stylesheet' href='/bootstrap/css/bootstrap.css' />
+    <link rel='stylesheet' href='/bootstrap/css/bootstrap-select.css' />
+
+    <script src='/bootstrap/js/jquery-1.11.1.js'></script>
+    <script src='/bootstrap/js/bootstrap.js'></script>
+    <script src='/bootstrap/js/bootstrap-select.js'></script>
+    <script src='/bootstrap/js/defaults-zh_CN.js'></script>
+    <script src='/bootstrap/js/jquery.validate.js'></script>
+
+</head>
+<body>
+    <div class="container" style="margin:0 auto; width:1000px;vertical-align:middle">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class='panel-title'>CGI配置测试</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form action="/cgi-bin/login.cgi" method="post" class="form-horizontal" id="loginform">
+                            <div class='form-group'>
+                                <label class='col-sm-4 control-label' for='KEY'>KEY:</label><div class='col-sm-5'>
+                                    <input type='text' name='key' id='key' class='form-control' />
+                                </div>
+                            </div>
+                            <div class='form-group'>
+                                <div class='col-sm-9 col-sm-offset-4'>
+                                    <button type='submit' class='btn btn-primary' value='login'>Login</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(document).ready(function () {
+    $("#loginform").validate({
+        rules: {
+            key: "required"
+                },
+        messages: {
+            key: "Please enter key"
+                },
+          errorElement: "em",
+         errorPlacement: function (error, element) {
+    // Add the `help-block` class to the error element
+         error.addClass("help-block");
+
+            if (element.prop("type") === "checkbox") {
+                error.insertAfter(element.parent("label"));
+            } else {
+                error.insertAfter(element);
+            }
+            },
+            highlight: function (element, errorClass, validClass) {
+                 $(element).parents(".col-sm-5").addClass("has-error").removeClass("has-success");
+             },
+            unhighlight: function (element, errorClass, validClass) {
+                 $(element).parents(".col-sm-5").addClass("has-success").removeClass("has-error");
+             }
+         });
+    });
+    </script>
+
+</body>
+</html>
