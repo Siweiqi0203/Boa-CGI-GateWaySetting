@@ -1,1 +1,1 @@
-# Boa-CGI-_GateWaySetting
+# Boa-CGI-GateWaySetting
