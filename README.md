@@ -14,7 +14,6 @@ User（48行）默认nobody，改为root<br>
 Group（49行）默认nogroup，改为root<br>
 ErrorLog（62行）默认/var/log/boa/error_log，需要手动建立/var/log/boa目录<br>
 AccessLog（74行）默认/var/log/boa/access_log，需要手动建立/var/log/boa目录<br>
-ServerName（94行） www.your.org.here前注解#去掉 <br>
 DocumentRoot(111行）默认/var/www，需手动建立目录<br>
 DirectoryIndex（123行）默认index.html<br>
 ScriptAlias（193行）默认/cgi-bin/ /usr/lib/cgi-bin/，需手动建立目录，习惯修改至/var/www/cgi-bin<br>
